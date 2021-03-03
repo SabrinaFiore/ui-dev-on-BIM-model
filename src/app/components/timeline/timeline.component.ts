@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
 })
 export class TimelineComponent implements OnInit {
 
-  items = Array.from({ length: 20 }).map((_, i) => `E02-C24-H0${i}`);
+  items = Array.from({ length: 31 }).map((_, i) => `${i}`);
 
   constructor() { }
 
