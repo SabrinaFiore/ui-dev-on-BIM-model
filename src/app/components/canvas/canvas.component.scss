@@ -1,0 +1,30 @@
+/* Canvas */
+
+.canvas {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.canvas-info {
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  right: 5;
+
+  &--title {
+    font-family: 'roboto', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+  }
+
+  &--id,
+  &--model,
+  &--xyz,
+  &--textarea {
+    font-family: 'roboto', serif;
+    font-size: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+}

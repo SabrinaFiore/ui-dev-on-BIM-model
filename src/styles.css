@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+p,
+h1,
+h1,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-weight: unset;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+label,
+button,
+textarea {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

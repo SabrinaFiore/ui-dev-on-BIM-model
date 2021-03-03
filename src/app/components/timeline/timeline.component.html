@@ -1,0 +1,19 @@
+<div class="position">
+  <div class="timing">
+    <div class="months">
+      <div class="months--months">
+        <div class="months--first-month">February</div>
+        <div class="months--second-month">March</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline--horizontal">
+        <ng-template ngFor let-item [ngForOf]="items" let-i="index">
+          <div class="timeline__item">
+            <div class="timeline__text">{{ item }}</div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
