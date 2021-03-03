@@ -93,6 +93,13 @@ $timeline--grid-template-columns: repeat(2000, 100px);
     }
   }
 
+  &__event {
+    text-align: center;
+    font-family: 'roboto', serif;
+    font-size: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
   &__text {
     white-space: nowrap;
     overflow: hidden;

@@ -9,8 +9,11 @@
     <div class="timeline">
       <div class="timeline--horizontal">
         <ng-template ngFor let-item [ngForOf]="items" let-i="index">
-          <div class="timeline__item">
-            <div class="timeline__text">{{ item }}</div>
+          <div class="timeline--content">
+            <div class="timeline__event">{{ event }}</div>
+            <div class="timeline__item">
+              <div class="timeline__text">{{ item }}</div>
+            </div>
           </div>
         </ng-template>
       </div>
