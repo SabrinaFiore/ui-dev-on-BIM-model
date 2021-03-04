@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { State, Viewer, ViewType } from '@xbim/viewer';
+import { Post } from 'src/app/posts.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-canvas',
@@ -15,17 +17,11 @@ export class CanvasComponent implements OnInit {
   xyz: any | undefined;
   family: string | undefined;
   length: string | undefined;
-  items = [];
-  url = "http://34.77.82.193:1433/api/dairom/";
-  key: any;
+  elementIDwex: number | undefined;
 
-  constructor(private http: HttpClient) {
-    this.http.get(this.url).subscribe(item => {
-      console.log(item);
-    });
-  }
+  constructor(private http: HttpClient){}
 
-  ngOnInit(): void {
+  ngOnInit(){
     var viewer = new Viewer("viewer");
 
     viewer.on('loaded', () => {
@@ -35,7 +31,7 @@ export class CanvasComponent implements OnInit {
     viewer.load('../assets/DAIROM2021-2.wexbim');
     viewer.start();
     viewer.camera = 0;
-    viewer.navigationMode = "walk";
+    // viewer.navigationMode = "walk";
 
     viewer.on("dblclick", function (args) {
       viewer.resetState(0);
@@ -47,7 +43,7 @@ export class CanvasComponent implements OnInit {
 
     viewer.on("pick",  (args) => {
       if(args.id === null){
-        viewer.resetState(0);
+        viewer.resetState(26);
         viewer.resetStyles();
         viewer.renderingMode = 0;
       }
@@ -56,7 +52,30 @@ export class CanvasComponent implements OnInit {
         console.log(args);
         this.elementID = args.id;
         this.model = args.model;
+        this.fetchElementInfo(args.id)
        }
     });
+  }
+
+  private fetchElementInfo(elID: number){
+    this.http
+    .get<{ [key: string]: Post }>('http://34.77.82.193:1433/api/dairom/${elID}')
+
+    .pipe(
+        map((responseData: any) => {
+          const postsArray: Post[] = [];
+          for (const key in responseData){
+            if(responseData.hasOwnProperty(key)){
+              postsArray.push({ ...responseData[key], ElementID: key});
+            }
+          }
+          return postsArray;
+      }))
+    .subscribe((elementInfo) => {
+        console.log(elementInfo[0].Family);
+        console.log(elementInfo[0].Length);
+        console.log(elementInfo[0].Width);
+        console.log(elementInfo[0].Type);
+    })
   }
 }

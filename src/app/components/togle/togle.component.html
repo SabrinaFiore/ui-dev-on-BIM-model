@@ -1,5 +1,11 @@
 <div class="switch-toggle">
   <div class="switch-toggle--title">Switch camera</div>
-  <input class="switch-toggle--input" type="checkbox" id="switch"/>
+  <input
+    class="switch-toggle--input"
+    (click)="clickEvent($event)"
+    type="checkbox"
+    id="switch"
+    [ngClass]="camera ? 'walk' : 'offset'"
+  />
   <label class="switch-toggle--label" for="switch"></label>
 </div>
