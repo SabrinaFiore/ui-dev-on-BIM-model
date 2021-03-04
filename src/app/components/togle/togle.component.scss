@@ -1,0 +1,62 @@
+/* Togle */
+
+$switch-toggle-rimond-brand-color: rgba(247, 197, 77, 0.8)!default;
+
+.switch-toggle {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  right: 0;
+  position: absolute;
+  text-align: left;
+  top: 100px;
+
+  &--title {
+    font-family: 'roboto', serif;
+    font-size: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  &--input[type=checkbox] {
+    height: 0;
+	  width: 0;
+	  visibility: hidden;
+  }
+
+  &--label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 20px;
+    background: #000;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 90px;
+      transition: 0.3s;
+    }
+  }
+}
+
+input:checked + label {
+	background: $switch-toggle-rimond-brand-color;
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 20px;
+}

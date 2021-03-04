@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { HttpClientModule } from '@angular/common/http';
+import { TogleComponent } from './components/togle/togle.component';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     NavigationBarComponent,
     CanvasComponent,
     HeaderComponent,
-    TimelineComponent
+    TimelineComponent,
+    TogleComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     FormsModule,
     BrowserAnimationsModule,
     ScrollingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
